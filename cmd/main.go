@@ -6,6 +6,7 @@ import (
 	"siakad-rest/config"
 	"siakad-rest/db"
 	"siakad-rest/pkg/auth"
+	"siakad-rest/pkg/user"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -21,6 +22,7 @@ func main() {
 	db := db.Init(c.DBUrl)
 
 	auth.RegisterRoutes(app, db)
+	user.RegisterRoutes(app, db)
 
 	// books.RegisterRoutes(app, db)
 
